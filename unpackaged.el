@@ -132,7 +132,7 @@ With prefix, toggle `ibuffer-show-empty-filter-groups'."
 
 ;;; Customization
 
-(use-package cus-edit
+(use-package cus-edit+
   :general
   (:keymaps 'custom-field-keymap
             "C-c C-c" (defun unpackaged/custom-set-at-point ()
