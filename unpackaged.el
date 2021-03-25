@@ -780,6 +780,7 @@ exist after each headings's drawers."
   (require 'ox))
 
 (use-package ox
+  :straight org
   :config
   (define-minor-mode unpackaged/org-export-html-with-useful-ids-mode
     "Attempt to export Org as HTML with useful link IDs.
