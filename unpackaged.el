@@ -131,6 +131,13 @@ With prefix, toggle `ibuffer-show-empty-filter-groups'."
   (ibuffer-yank))
 
 ;;; Customization
+(defun unpackaged/custom-toggle-all-more-hide ()
+  "Toggle all \"More/Hide\" widgets in current buffer."
+  (interactive)
+  (widget-map-buttons (lambda (widget _)
+                        (pcase (widget-get widget :off)
+                          ("More" (widget-apply-action widget)))
+                        nil)))
 
 (use-package cus-edit+
   :general
@@ -146,6 +153,7 @@ With prefix, toggle `ibuffer-show-empty-filter-groups'."
                             (when (eq (widget-get widget :custom-state) 'modified)
                               (widget-apply widget :custom-set)))))))
 
+;;;###autoload
 (defun unpackaged/customize-theme-faces (theme &rest faces)
   "Customize THEME with FACES.
 Advises `enable-theme' with a function that customizes FACES when
